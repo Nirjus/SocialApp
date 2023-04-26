@@ -18,12 +18,12 @@
   font-weight: 600;
 }
 
-a {
+#heder li a {
   text-decoration: none;
   color: #fff;
 }
 
-a:hover {
+#heder li a:hover {
   color: orangered;
 }
 
