@@ -4,7 +4,7 @@ const path= require("path");
 
 let transporter = nodemailer.createTransport({
     service:"gmail",
-    host:"smtp.gmail.com",
+    host:"smtp.gmail.com", // created domain by smtp to interect the user
     port:587,
     secure:false,
     auth:{

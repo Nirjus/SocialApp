@@ -10,18 +10,19 @@ const likeSchema = new mongoose.Schema({
         require:true,
         refPath:"onModel"
     },
- //this field is uded for defining the type of the liked scence this is a dynamic object
+ //this field is uded for defining the type of the liked scence this is a dynamic refference
     onModel:{
         type:String,
         require:true,
-        enum:["post", "Comment"]
+        enum:["Post", "Comment"]
+ //this field is uded for defining the type of the liked scence this is a dynamic object
+
     }
 },{
     timestamps:true
 });
 
 
-const like = mongoose.model("like",likeSchema);
-module.exports = like;
-
+const Like = mongoose.model("Like",likeSchema);
+module.exports = Like;
 
