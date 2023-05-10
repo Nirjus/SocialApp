@@ -16,8 +16,10 @@ const conmmentSchema = new mongoose.Schema({
     },
     likes:[
         {
+
             type:mongoose.Schema.Types.ObjectId,
             ref:"Like"
+
         }
     ]
 },{
