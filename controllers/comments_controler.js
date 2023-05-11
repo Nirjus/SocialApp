@@ -4,6 +4,7 @@ const Like = require("../models/like");
 const commentsMailer = require("../mailers/comments_mailer");
 const queue = require("../config/kue");
 const commnetEmailWorker = require("../workers/comment_email_worker");
+const { post } = require("../routes/posts");
 
 module.exports.create =async function(req,res){
     try {
@@ -48,8 +49,9 @@ module.exports.create =async function(req,res){
 
 module.exports.destroy =async function(req,res){
     try {
-        let comment = await Comment.findById(req.params.id)
-   if(comment.user == req.user.id){
+        let comment = await Comment.findById(req.params.id);
+        let post = await Post.findById(comment.post);
+   if(comment.user == req.user.id ||  post.user == req.user.id){
     let postID = comment.post;
     comment.remove();
 

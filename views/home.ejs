@@ -1,6 +1,17 @@
 <link rel="stylesheet" href="/css/home.css">
 
 <div id="home-container">
+    <section id="user-nav">
+        <h4>User</h4>
+        <% if(locals.user) { %>
+            <% if(user.avatar) { %>
+                <img src="<%= user.avatar %>" alt="<%= user.name %>" width="100">
+            <% } %>
+            <p>
+                <a href="/users/profile/<%= user.id %>"><%= user.name %></a>
+            </p>
+        <% } %>
+    </section>
 <section id="feed-post">
        <h4>POST</h4>
        <%if(locals.user){%>
@@ -23,12 +34,41 @@
 
 
 <section id="user-friends">
+    <div id="friends-container">
+        <h4>
+            FRIENDS
+        </h4>
+        <ul class="list-group">
+            <%if(!locals.user){%>
+            <h5>Please login to see your Friends list</h5>
+            <%}%>
+            <% if( locals.user && locals.friends.length == 0){%>
+                <h5>No Friends found</h5>
+            <%}%>
+            <%for(fr of locals.friends){%>
+            <li >
+                <div>
+
+                    
+                       <a href="/users/profile/<%=fr.friend_id%>" style="color:black;text-decoration: none;text-align: left;">
+                        <img src="<%=fr.friend_avatar%>" style="height:40px; width:40px; border-radius:50%;" >
+                        &nbsp;
+                        <span class="user-name">  <%=fr.friend_name%> </span>
+                    </a>
+                    
+                </div>
+                <!-- <a class="badge badge-primary"><i class="fas fa-comment"></i></a> -->
+            </li>
+            <%}%>
+        </ul>
+    </div>
        <h4>Friends</h4>
        <%for(u of all_users){%>
           <p>
               <a href="/users/profile/<%= u.id%>"><%= u.name %></a>
           </p>
               <%}%>
+              <%- include("chatbox")%>
 </section>
 </div>
 

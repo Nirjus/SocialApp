@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/css/chatbox.css">
+<%if(locals.user){%>
+<div class="chat-box">
+<div class="chats">
+<ul>
+    <li id="sender-text">Sender</li>
+
+    <li id="resever-text"> Youu</li>
+</ul>
+</div>
+<div class="chat-area">
+<form action="" method="post">
+
+    <input type="text" name="chat-text" id="text-area" placeholder="Type here...">
+    <input type="submit"id="submit-butn" value="SEND">
+</form>
+</div>
+</div>
+<%}%>
