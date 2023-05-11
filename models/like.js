@@ -15,6 +15,8 @@ const likeSchema = new mongoose.Schema({
         type:String,
         require:true,
         enum:["Post", "Comment"]
+ //this field is uded for defining the type of the liked scence this is a dynamic object
+
     }
 },{
     timestamps:true
@@ -23,5 +25,4 @@ const likeSchema = new mongoose.Schema({
 
 const Like = mongoose.model("Like",likeSchema);
 module.exports = Like;
-
 
