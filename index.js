@@ -13,7 +13,15 @@ const passportGoogle = require("./config/passport-google-oauth2-strategy")
 const mongoStore = require("connect-mongo");  //mongoStore is use to store the session cookie in the DB
 const Sass = require("sass");
 const flash = require("connect-flash");
-const customMware = require("./config/middleware")
+const customMware = require("./config/middleware");
+const cors = require("cors");
+app.use(cors());
+//chat server will be used with socket.io
+const chatServer = require("http").Server(app);
+const chatSocket = require('./config/chat_socket').chatSocket(chatServer)
+chatServer.listen(5000);
+console.log("chat server is listen on port 5000");
+
 // app.use(Sass({
 //     src:"./assets/scss",
 //     dest:"./assets/css",

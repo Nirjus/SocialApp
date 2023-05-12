@@ -35,6 +35,7 @@
     "path": "^0.12.7",
     "redis": "^4.6.6",
     "sass": "^1.62.0",
-    "sass-middleware": "^0.0.3"
+    "sass-middleware": "^0.0.3",
+    "socket.io": "^4.6.1"
   }
 }

@@ -1,19 +1,22 @@
 <link rel="stylesheet" href="/css/chatbox.css">
 <%if(locals.user){%>
-<div class="chat-box">
+<div class="chat-box">    <!--(id)user-chat-box-->
 <div class="chats">
-<ul>
-    <li id="sender-text">Sender</li>
+<ul id="chat-messages-list">                  <!--(id)chat-message-list-->
+    <li class="sender-text">
+       Sender
+    </li>     <!--(class)other-message-->
 
-    <li id="resever-text"> Youu</li>
+    <li class="resever-text"> 
+       You
+        </li>      <!--(class)self-message-->
+       
 </ul>
 </div>
-<div class="chat-area">
-<form action="" method="post">
+<div class="chat-area">     <!--(id)caht-message-input-container-->
 
-    <input type="text" name="chat-text" id="text-area" placeholder="Type here...">
-    <input type="submit"id="submit-butn" value="SEND">
-</form>
+    <input type="text" name="chat-text" id="text-area" placeholder="Type here..."><!--(id)caht-message-input-->
+    <input type="submit"id="submit-butn" value="SEND"><!--(id)send-message-->
 </div>
 </div>
 <%}%>
