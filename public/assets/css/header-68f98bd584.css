@@ -1,0 +1,30 @@
+#heder {
+  background-color: cornflowerblue;
+  display: flex;
+}
+
+#heder h1 {
+  margin-right: auto;
+  margin-left: 25px;
+  color: #fff;
+}
+
+#heder li {
+  list-style: none;
+  font-size: 25px;
+  margin: 12px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+#heder li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+#heder li a:hover {
+  color: orangered;
+}
+
+/*# sourceMappingURL=header.css.map */
