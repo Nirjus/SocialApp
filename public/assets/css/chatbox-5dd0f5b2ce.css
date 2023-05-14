@@ -1,0 +1,76 @@
+.chat-box .chats {
+  background-image: linear-gradient(60deg, rgb(254, 67, 67), rgb(78, 78, 252));
+  width: 70%;
+  height: 250px;
+  margin: auto;
+  min-width: 200px;
+  font-family: monospace;
+  border-radius: 15px 15px 0 0;
+  overflow: auto;
+}
+.chat-box .chats ul > li {
+  list-style: none;
+  color: #ffffff;
+  font-size: large;
+  font-weight: 600;
+  border-radius: 20px;
+  text-align: center;
+  height: auto;
+  padding: 3px;
+  margin: 10px;
+  width: 150px;
+  display: inline-block;
+  overflow-wrap: break-word;
+}
+.chat-box .chats .sender-text {
+  background-color: crimson;
+  float: left;
+}
+.chat-box .chats .resever-text {
+  background-color: rgb(46, 192, 240);
+  float: right;
+}
+.chat-box .chats::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.chat-box .chats::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+.chat-box .chats::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+.chat-box .chat-area {
+  background-color: rgb(65, 19, 19);
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 4px 0 4px 0;
+}
+.chat-box .chat-area #text-area {
+  height: 30px;
+  border: none;
+  background-color: rgb(8, 72, 86);
+  color: #fff;
+  box-shadow: inset 0 0 5px 1px #fff;
+}
+.chat-box .chat-area input::placeholder {
+  color: #fff;
+}
+.chat-box .chat-area #submit-butn {
+  background-color: greenyellow;
+  color: #fff;
+  border: none;
+  height: 30px;
+  width: 100px;
+  font-size: large;
+  border-radius: 25px;
+}
+.chat-box .chat-area #submit-butn:hover {
+  background-color: green;
+}
+
+/*# sourceMappingURL=chatbox.css.map */

@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  /* text-align: center; */
+}
+
+#layout-main {
+  height: 100%;
+  width: 100%;
+  background-color: blanchedalmond;
+}
+
+/*# sourceMappingURL=layout.css.map */

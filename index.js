@@ -3,6 +3,8 @@ const env = require("./config/environment");
 const morgan = require("morgan");
 const app = express();
 const cookieParser = require("cookie-parser");
+require("./config/view-helpers")(app);
+
 const expressLayouts = require("express-ejs-layouts"); // include library
 const port = 8000;
 const db = require("./config/mongoose");
