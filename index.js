@@ -1,4 +1,6 @@
 const express = require("express");
+const env = require("./config/environment");
+const morgan = require("morgan");
 const app = express();
 const cookieParser = require("cookie-parser");
 const expressLayouts = require("express-ejs-layouts"); // include library
@@ -10,11 +12,14 @@ const passport = require("passport");
 const passportLocal = require("./config/passport-local-stratagy");
 const passportJWT = require("./config/passport-jwt-stratetegy");
 const passportGoogle = require("./config/passport-google-oauth2-strategy")
+
 const mongoStore = require("connect-mongo");  //mongoStore is use to store the session cookie in the DB
-const Sass = require("sass");
+const Sass = require("sass-middleware");
 const flash = require("connect-flash");
 const customMware = require("./config/middleware");
 const cors = require("cors");
+const path = require("path");
+
 app.use(cors());
 //chat server will be used with socket.io
 const chatServer = require("http").Server(app);
@@ -22,22 +27,25 @@ const chatSocket = require('./config/chat_socket').chatSocket(chatServer)
 chatServer.listen(5000);
 console.log("chat server is listen on port 5000");
 
-// app.use(Sass({
-//     src:"./assets/scss",
-//     dest:"./assets/css",
-//     debug:true,
-//     indentedSyntax:false,
-//     outputStyle:"extended",
-//     prefix:"/css"
-// }))
+if(env.name == "development"){
+    app.use(Sass({
+        src:path.join(__dirname,env.asset_path,'scss'),
+        dest:path.join(__dirname,env.asset_path,'css'),
+        debug:true,
+        indentedSyntax:false,
+        outputStyle:"extended",
+        prefix:"/css"
+    }))
+}
 
 app.use(express.urlencoded());
 app.use(cookieParser());
 
 
- app.use(express.static("./assets"));
+ app.use(express.static(env.asset_path));
  //make the uploads path to the browser  
  app.use("/uploads",express.static(__dirname+"/uploads"));
+ app.use(morgan(env.morgan.mode,env.morgan.options));
  app.use(expressLayouts);   //use this library
 //extract style and script from sub pages into the layout
  app.set("layout extractStyles", true);
@@ -50,7 +58,7 @@ app.set("views","./views");
 
 app.use(session({
     name:"codial",
-    secret:"blahdsomething",
+    secret:env.session_cookie_key,
     saveUninitialized:false,
     resave:false,
     cookie:{
