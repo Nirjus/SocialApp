@@ -39,7 +39,7 @@
     "rotating-file-stream": "^1.4.6",
     "sass": "^1.62.0",
     "sass-middleware": "^0.0.3",
-    "socket.io": "^4.6.1"
+    "socket.io": "^2.2.0"
   },
   "devDependencies": {
     "del": "^4.1.1",
