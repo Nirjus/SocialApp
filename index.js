@@ -19,10 +19,9 @@ const mongoStore = require("connect-mongo");  //mongoStore is use to store the s
 const Sass = require("sass-middleware");
 const flash = require("connect-flash");
 const customMware = require("./config/middleware");
-const cors = require("cors");
 const path = require("path");
 
-app.use(cors());
+
 //chat server will be used with socket.io
 const chatServer = require("http").Server(app);
 const chatSocket = require('./config/chat_socket').chatSocket(chatServer)
