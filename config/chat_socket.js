@@ -1,6 +1,16 @@
-
+const express = require("express");
+const app = express();
+// const { on } = require("connect-mongo");
+const cors = require("cors");
+app.use(cors());
 module.exports.chatSocket = function(socketServer){
-  let io = require("socket.io")(socketServer)
+  let io = require("socket.io")(socketServer,{
+      cors: {
+      origin: '*',
+      methods: ['GET', 'POST'],
+      allowedHeaders: ['Content-Type'],
+    },
+  })
 
   io.sockets.on('connection',function(socket){
         console.log("new connection received",socket.id);
@@ -24,3 +34,4 @@ module.exports.chatSocket = function(socketServer){
        })
     })
 }
+

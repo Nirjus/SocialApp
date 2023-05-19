@@ -14,7 +14,7 @@ const  development = {
     name:"development",
     asset_path:"./assets",
     session_cookie_key:"blahdsomething",
-    db:"codial_development",
+    db:"codeial_db",
     smtp:{
         service:"gmail",
         host:"smtp.gmail.com", // created domain by smtp to interect the user

@@ -16,12 +16,13 @@ const passportJWT = require("./config/passport-jwt-stratetegy");
 const passportGoogle = require("./config/passport-google-oauth2-strategy")
 
 const mongoStore = require("connect-mongo");  //mongoStore is use to store the session cookie in the DB
+var dotenv = require("dotenv").config();
 const Sass = require("sass-middleware");
 const flash = require("connect-flash");
 const customMware = require("./config/middleware");
+const cors = require("cors");
 const path = require("path");
-
-
+app.use(cors());
 //chat server will be used with socket.io
 const chatServer = require("http").Server(app);
 const chatSocket = require('./config/chat_socket').chatSocket(chatServer)
@@ -66,9 +67,9 @@ app.use(session({
         maxAge:(1000*60*100)
     },
     store:new mongoStore({
-        mongoUrl: 'mongodb://127.0.0.1:27017/codial_development',
+        mongoUrl:`mongodb://127.0.0.1:27017/${env.db}`,
         mongooseConnection:db,
-        autoRemove: "desabled"
+        autoRemove: "desabled",
     },
       function(err){
         console.log(err || "connection-mongodb is ok");
