@@ -8,7 +8,8 @@
     "sass": "sass --watch  assets/scss:assets/css",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "prod_start": "set \"NODE_ENV=production\" && nodemon index.js"
+    "prod_start": "set \"NODE_ENV=production\" && nodemon index.js",
+    "redis": "redis-server"
   },
   "keywords": [
     "social"
@@ -40,6 +41,7 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "redis": "^4.6.6",
+    "redis-server": "^1.2.2",
     "rotating-file-stream": "^1.4.6",
     "sass": "^1.62.0",
     "sass-middleware": "^0.0.3",
@@ -54,7 +56,7 @@
     "gulp-sass": "^5.1.0",
     "gulp-uglify-es": "^3.0.0"
   },
-  "engines":{
+  "engines": {
     "node": ">=14 <15"
   }
 }
