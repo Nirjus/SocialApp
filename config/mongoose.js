@@ -18,14 +18,14 @@ var dotenv = require("dotenv").config();
 
 async function main() {
   try {
-    // mongoose.connect(process.env.MONGO_URI || `mongodb://127.0.0.1:27017/${env.db}`, {
-    //   // useNewUrlParser: true,
-    //   // useUnifiedTopology: true,
-    //   // writeConcern: {
-    //   //   w: "majority",
-    //   // },
-    // });
-    mongoose.connect(process.env.MONGO_URI);
+    mongoose.set('strictQuery', true);
+    mongoose.connect(process.env.MONGO_URI || `mongodb://127.0.0.1:27017/${env.db}`, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      writeConcern: {
+        w: "majority",
+      },
+    });
     console.log("Database connected successfully");
   } catch (err) {
     console.log(`Database connection error: ${err}`);
@@ -36,3 +36,14 @@ async function main() {
 main().catch((err) => {
   console.log(`Error occurred while connecting to the database: ${err}`);
 });
+
+
+// const mongoose = require('mongoose');
+// mongoose.connect(process.env.MONGO_URI);
+// const db = mongoose.connection;
+// db.on('error',console.error.bind(console,'error coneecting to db'));
+
+// db.once('open',function(){
+//     console.log('Successfully connected to the database');
+// });
+

@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser");
 require("./config/view-helpers")(app);
 
 const expressLayouts = require("express-ejs-layouts"); // include library
-const port = 8000;
+const port = 8000
 const db = require("./config/mongoose");
 //   used for session cookie and passport library
 const session = require("express-session");
