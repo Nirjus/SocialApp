@@ -1,14 +1,14 @@
 
 const gulp = require('gulp');
 
-const sass = require("gulp-sass")(require("sass"));
+// const sass = require("gulp-sass")(require("sass"));
 const cssnano = require("gulp-cssnano");
 const rev = require("gulp-rev");
 const uglify = require("gulp-uglify-es").default;
 const imagemin = require("gulp-imagemin");
 const del = require("del");
 
-
+const sass = require("gulp-sass")(require("node-sass"))
 
 gulp.task('css', function(done){
     console.log('minifying css...');
@@ -61,7 +61,7 @@ gulp.task('images', function(done){
 
 //empty the public/assets directory
 gulp.task('clean:assets', function(done){
-    del.sync('./public/assets');
+    del.sync(['./public/assets'],{force:true});
     done();
 });
 
