@@ -18,13 +18,14 @@ var dotenv = require("dotenv").config();
 
 async function main() {
   try {
-    mongoose.connect(process.env.MONGO_URI || `mongodb://127.0.0.1:27017/${env.db}`, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      writeConcern: {
-        w: "majority",
-      },
-    });
+    // mongoose.connect(process.env.MONGO_URI || `mongodb://127.0.0.1:27017/${env.db}`, {
+    //   // useNewUrlParser: true,
+    //   // useUnifiedTopology: true,
+    //   // writeConcern: {
+    //   //   w: "majority",
+    //   // },
+    // });
+    mongoose.connect(process.env.MONGO_URI);
     console.log("Database connected successfully");
   } catch (err) {
     console.log(`Database connection error: ${err}`);
