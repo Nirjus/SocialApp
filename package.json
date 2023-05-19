@@ -8,8 +8,7 @@
     "sass": "sass --watch  assets/scss:assets/css",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "prod_start": "set \"NODE_ENV=production\" && nodemon index.js",
-    "redis": "redis-server"
+    "prod_start": "set \"NODE_ENV=production\" && nodemon index.js"
   },
   "keywords": [
     "social"
