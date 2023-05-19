@@ -53,5 +53,8 @@
     "gulp-rev": "^9.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-uglify-es": "^3.0.0"
+  },
+  "engines":{
+    "node": ">=14 <15"
   }
 }
