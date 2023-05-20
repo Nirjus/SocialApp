@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-// const { on } = require("connect-mongo");
+const { on } = require("connect-mongo");
 const cors = require("cors");
 app.use(cors());
 module.exports.chatSocket = function(socketServer){
