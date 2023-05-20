@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "sass --watch  assets/scss:assets/css",
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "dev": "nodemon index.js",
     "prod_start": "set \"NODE_ENV=production\" && nodemon index.js"
   },
@@ -54,8 +54,5 @@
     "gulp-rev": "^9.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-uglify-es": "^3.0.0"
-  },
-  "engines": {
-    "node": ">=14 <15"
   }
 }
