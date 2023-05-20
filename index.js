@@ -67,7 +67,7 @@ app.use(session({
         maxAge:(1000*60*100)
     },
     store:new mongoStore({
-        mongoUrl:`mongodb://127.0.0.1:27017/${env.db}`,
+        mongoUrl:process.env.MONGO_URI ||`mongodb://127.0.0.1:27017/${env.db}`,
         mongooseConnection:db,
         autoRemove: "desabled",
     },
